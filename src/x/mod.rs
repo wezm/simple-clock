@@ -10,7 +10,7 @@ pub use window_builder::WindowBuilder;
 
 pub struct Context {
     conn: xcb::Connection,
-    preferred_screen_number: i32
+    preferred_screen_number: i32,
 }
 
 impl Context {
@@ -18,7 +18,7 @@ impl Context {
         let (conn, preferred_screen_number) = xcb::Connection::connect(None).unwrap();
         Context {
             conn,
-            preferred_screen_number
+            preferred_screen_number,
         }
     }
 

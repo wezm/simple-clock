@@ -12,13 +12,15 @@ fn main() -> Result<(), String> {
     let screen = ctx
         .get_preferred_screen()
         .expect("Couldn't Open the screen");
+    let dpi = screen.dpi().0;
+    let scale = if dpi != 0 { dpi as f64 / 96. } else { 1. };
 
     // Properties
-    let padding = 10.0;
-    let font_size = 28.0;
-    let margin = 20;
-    let width = 145;
-    let height = 40;
+    let padding = 10.0 * scale;
+    let font_size = 28.0 * scale;
+    let margin = (20. * scale) as u16;
+    let width = (145. * scale) as u16;
+    let height = (40. * scale) as u16;
     let screen_height: u16 = screen
         .get_geometry()
         .expect("Couldn't get the geometry of your screen")
@@ -60,6 +62,4 @@ fn main() -> Result<(), String> {
     }
 
     // ctx.wait_for_exit();
-
-    Ok(())
 }

@@ -75,6 +75,4 @@ impl<'c> WindowBuilder<'c> {
 
         Ok(win)
     }
-
-    
 }

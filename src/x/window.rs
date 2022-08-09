@@ -77,17 +77,17 @@ impl<'c> Window<'c> {
     pub fn set_decoration_disabled(&self) -> Result<(), String> {
         self.set_decoration_disabled_motif()?;
         self.set_decoration_disabled_net()?;
-        self.set_wm_type_normal()?;
+        self.set_wm_type_utility()?;
         Ok(())
     }
 
-    fn set_wm_type_normal(&self) -> Result<(), String> {
+    fn set_wm_type_utility(&self) -> Result<(), String> {
         Self::set_prop::<u32>(
             self.window,
             self.conn,
             &PropID::Str("_NET_WM_WINDOW_TYPE"),
             &PropID::Atom(xcb::ATOM_ATOM),
-            PropVal::PropID(PropID::Str("_NET_WM_WINDOW_TYPE_NORMAL")),
+            PropVal::PropID(PropID::Str("_NET_WM_WINDOW_TYPE_UTILITY")),
         )?;
         Ok(())
     }

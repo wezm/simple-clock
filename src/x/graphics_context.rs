@@ -71,8 +71,13 @@ impl<'c> GraphicsContext<'c> {
             90.0 * degrees,
             180.0 * degrees,
         );
-        self.cr
-            .arc(x + radius, y + radius, radius, 180.0 * degrees, 270.0 * degrees);
+        self.cr.arc(
+            x + radius,
+            y + radius,
+            radius,
+            180.0 * degrees,
+            270.0 * degrees,
+        );
         self.cr.close_path();
     }
 
